@@ -1,0 +1,41 @@
+/* Variables */
+:root {
+  /* Theme 1 */
+  --theme1-primary: #26547c;
+  --theme1-secondary: #ef476f;
+  --theme1-primary-bg: #fffcf9;
+  --theme1-secondary-bg: #ffd166;
+  --theme1-font-family: "Poppins", sans-serif;
+  --theme1-border-radius: 12px;
+  --theme1-btn-margin: 5px;
+
+  /* Theme 2 */
+  --theme2-primary: #272d2d;
+  --theme2-secondary: #a846a0;
+  --theme2-primary-bg: #999a98;
+  --theme2-secondary-bg: #85eaaf;
+  --theme2-font-family: "Oswald", sans-serif;
+  --theme2-border-radius: 12px;
+  --theme2-btn-margin: 8px;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.theme1 button {
+  padding: 8px 18px;
+  border-radius: 12px;
+  font-family: var(--theme1-font-family);
+  border: var(--theme1-border-radius);
+  margin: var(--theme1-btn-margin);
+}
+
+.theme2 button {
+  padding: 12px 16px;
+  font-family: var(--theme2-font-family);
+  border-radius: var(--theme2-border-radius);
+  margin: var(--theme2-btn-margin);
+}

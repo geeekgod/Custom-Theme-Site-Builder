@@ -10,6 +10,7 @@ interface ThemesInterface {
   secondary: string;
   bgPrimary: string;
   bgSecondary: string;
+  font: string;
 }
 
 interface ThemeInterface {
@@ -25,12 +26,14 @@ const defaultContext = {
       secondary: "#EF476F",
       bgPrimary: "#FFFCF9",
       bgSecondary: "#FFD166",
+      font: `'Poppins', sans-serif`,
     },
     {
       primary: "#272D2D",
       secondary: "#A846A0",
       bgPrimary: "#999A98",
       bgSecondary: "#85EAAF",
+      font: `'Oswald', sans-serif`,
     },
   ],
   selectedTheme: 0,
@@ -46,12 +49,14 @@ const ThemeContextProvider = ({ children }: any) => {
       secondary: "#EF476F",
       bgPrimary: "#FFFCF9",
       bgSecondary: "#FFD166",
+      font: `'Poppins', sans-serif`,
     },
     {
       primary: "#272D2D",
       secondary: "#A846A0",
       bgPrimary: "#999A98",
       bgSecondary: "#85EAAF",
+      font: `'Oswald', sans-serif`,
     },
   ];
 
