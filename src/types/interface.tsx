@@ -8,6 +8,9 @@ export interface ThemesInterface {
   font: string;
   fontSize1: string;
   fontSize2: string;
+  id: number;
+  title: string;
+  body: string;
 }
 
 export interface ThemeInterface {

@@ -1,5 +1,9 @@
-import React from "react";
 import { ThemesInterface } from "../../types/interface";
+import React, { useContext } from "react";
+import { ThemeContext } from "../../Context/ThemeContext";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import Boxes from "./../Boxes/index";
 
 interface displayProps {
   selectedTheme: number;
@@ -7,56 +11,34 @@ interface displayProps {
 }
 
 const Display = ({ selectedTheme, theme }: displayProps) => {
+  const themeSelector = (option: Number) => {
+    switch (option) {
+      case 0:
+        return "theme1";
+      case 1:
+        return "theme2";
+      default:
+        return "theme1";
+    }
+  };
+  const { setSelectedTheme } = useContext(ThemeContext);
+
   return (
     <div
+      className={themeSelector(selectedTheme)}
       style={{
-        color: theme[selectedTheme].primary,
-        fontSize: theme[selectedTheme].fontSize1,
+        background: theme[selectedTheme].bgPrimary,
+        height: "100vh",
+        fontFamily: `${theme[selectedTheme].font}`,
       }}
     >
-      <h4 style={{ fontSize: theme[selectedTheme].fontSize1 }}>
-        Lorem ipsum dolor sit.
-      </h4>
-      <p
-        style={{
-          color: theme[selectedTheme].secondary,
-          fontSize: theme[selectedTheme].fontSize2,
-        }}
-      >
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id eum cum
-        aliquid quod? Ipsam facilis temporibus sint quia optio voluptatum error,
-        consequuntur a nobis veritatis fuga, magnam voluptates saepe asperiores.
-      </p>
-      <p
-        style={{
-          color: theme[selectedTheme].secondary,
-          fontSize: theme[selectedTheme].fontSize2,
-        }}
-      >
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id eum cum
-        aliquid quod? Ipsam facilis temporibus sint quia optio voluptatum error,
-        consequuntur a nobis veritatis fuga, magnam voluptates saepe asperiores.
-      </p>
-      <p
-        style={{
-          color: theme[selectedTheme].secondary,
-          fontSize: theme[selectedTheme].fontSize2,
-        }}
-      >
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id eum cum
-        aliquid quod? Ipsam facilis temporibus sint quia optio voluptatum error,
-        consequuntur a nobis veritatis fuga, magnam voluptates saepe asperiores.
-      </p>
-      <p
-        style={{
-          color: theme[selectedTheme].secondary,
-          fontSize: theme[selectedTheme].fontSize2,
-        }}
-      >
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id eum cum
-        aliquid quod? Ipsam facilis temporibus sint quia optio voluptatum error,
-        consequuntur a nobis veritatis fuga, magnam voluptates saepe asperiores.
-      </p>
+      <button onClick={() => setSelectedTheme(0)}>First</button>
+      <button onClick={() => setSelectedTheme(1)}>Second</button>
+      <button onClick={() => setSelectedTheme(2)}>Third</button>
+      <button onClick={() => setSelectedTheme(3)}>Fourth</button>
+      <button onClick={() => setSelectedTheme(4)}>Fifth</button>
+      <Boxes selectedTheme={selectedTheme} theme={theme} />
+      {/* <Display  /> */}
     </div>
   );
 };
