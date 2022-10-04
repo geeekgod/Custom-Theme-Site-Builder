@@ -28,16 +28,21 @@ const Display = ({ selectedTheme, theme }: displayProps) => {
     <div
       className={themeSelector(selectedTheme)}
       style={{
+        // margin:"5rem",
+
         background: theme[selectedTheme].bgPrimary,
         height: "100vh",
         fontFamily: `${theme[selectedTheme].font}`,
       }}
     >
-      <button onClick={() => setSelectedTheme(0)}>First</button>
-      <button onClick={() => setSelectedTheme(1)}>Second</button>
-      <button onClick={() => setSelectedTheme(2)}>Third</button>
-      <button onClick={() => setSelectedTheme(3)}>Fourth</button>
-      <button onClick={() => setSelectedTheme(4)}>Fifth</button>
+      <div className="card">
+        <button onClick={() => setSelectedTheme(0)}>First</button>
+        <button onClick={() => setSelectedTheme(1)}>Second</button>
+        <button onClick={() => setSelectedTheme(2)}>Third</button>
+        <button onClick={() => setSelectedTheme(3)}>Fourth</button>
+        <button onClick={() => setSelectedTheme(4)}>Fifth</button>
+      </div>
+
       <Boxes selectedTheme={selectedTheme} theme={theme} />
       {/* <Display  /> */}
     </div>

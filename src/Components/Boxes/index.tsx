@@ -1,6 +1,7 @@
 import { ThemeContext } from "../../Context/ThemeContext";
 import { ThemesInterface } from "../../types/interface";
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 interface boxesProps {
   selectedTheme: number;
@@ -8,19 +9,38 @@ interface boxesProps {
   // setSelectedTheme:number;
 }
 const Boxes = ({ selectedTheme, theme }: boxesProps) => {
+  const [template, setTemplate] = useState(theme[0]);
+
+  const location = useLocation();
+  const locationPath = location.pathname.split("/");
+  const locationId = parseInt(locationPath[locationPath.length - 1]);
+
+  useEffect(() => {
+    const template = theme.find((i) => i.id === locationId);
+    if (template) {
+      setTemplate(template);
+    }
+  }, [locationId, theme]);
+
   const { setSelectedTheme } = useContext(ThemeContext);
-  console.log(theme[selectedTheme].id);
-  console.log(theme[selectedTheme].title);
+  console.log(
+    theme &&
+      theme.map((i) => {
+        i.id;
+      })
+  );
+  console.log(template.title);
   return (
     <>
       {
         // theme.map((i) => (
         <div
-          key={theme[selectedTheme].id}
+          key={template.id}
+          className="container"
           style={{ background: theme[selectedTheme].bgPrimary }}
         >
           <h2 style={{ fontSize: theme[selectedTheme].fontSize1 }}>
-            {theme[selectedTheme].title}
+            {template.title}
           </h2>
           <p
             style={{
@@ -28,7 +48,7 @@ const Boxes = ({ selectedTheme, theme }: boxesProps) => {
               fontSize: theme[selectedTheme].fontSize2,
             }}
           >
-            {theme[selectedTheme].body}
+            {template.body}
           </p>
         </div>
         // )
