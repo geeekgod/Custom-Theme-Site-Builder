@@ -17,6 +17,7 @@ const Display = ({ selectedTheme, theme }: displayProps) => {
         return "theme1";
       case 1:
         return "theme2";
+
       default:
         return "theme1";
     }

@@ -14,3 +14,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+#Cards {
+  margin: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* flex-direction:column; */
+}
+.content {
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.card {
+  padding: 1.5rem;
+}

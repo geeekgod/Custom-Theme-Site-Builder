@@ -12,20 +12,18 @@ const App = () => {
     <>
       <Router>
         <Routes>
-          <Route path="/">
-            <Route path="cards">
-              <Route
-                index
-                element={<Cards selectedTheme={selectedTheme} theme={theme} />}
-              />
-              <Route
-                path=":id"
-                element={
-                  <Display selectedTheme={selectedTheme} theme={theme} />
-                }
-              />
-            </Route>
+          {/* <Route path="/"> */}
+          <Route path="cards">
+            <Route
+              index
+              element={<Cards selectedTheme={selectedTheme} theme={theme} />}
+            />
+            <Route
+              path=":id"
+              element={<Display selectedTheme={selectedTheme} theme={theme} />}
+            />
           </Route>
+          {/* </Route> */}
         </Routes>
       </Router>
     </>

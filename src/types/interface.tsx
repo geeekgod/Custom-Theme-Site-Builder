@@ -11,6 +11,7 @@ export interface ThemesInterface {
   id: number;
   title: string;
   body: string;
+  description: string;
 }
 
 export interface ThemeInterface {
