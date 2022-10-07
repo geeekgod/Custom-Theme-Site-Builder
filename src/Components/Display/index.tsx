@@ -24,6 +24,13 @@ const Display = ({ selectedTheme, theme }: displayProps) => {
   };
   const { setSelectedTheme } = useContext(ThemeContext);
 
+  // const increment=()=>{
+
+  // };
+
+  // const decrement=()=>{
+
+  // }
   return (
     <div
       className={themeSelector(selectedTheme)}
@@ -41,6 +48,18 @@ const Display = ({ selectedTheme, theme }: displayProps) => {
         <button onClick={() => setSelectedTheme(2)}>Third</button>
         <button onClick={() => setSelectedTheme(3)}>Fourth</button>
         <button onClick={() => setSelectedTheme(4)}>Fifth</button>
+
+        {/* <div className="size-changer">
+       <div className="increment">
+           <button>+</button>
+       </div>
+       <div className="display">
+           
+       </div>
+       <div className="increment">
+           <button>-</button>
+       </div>
+      </div> */}
       </div>
 
       <Boxes selectedTheme={selectedTheme} theme={theme} />
