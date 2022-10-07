@@ -2,14 +2,26 @@ import { ThemeContext } from "../../Context/ThemeContext";
 import { ThemesInterface } from "../../types/interface";
 import React, { useContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-
+import TextareaAutosize from "@mui/base/TextareaAutosize";
+import App from "../../App";
 interface boxesProps {
   selectedTheme: number;
   theme: Array<ThemesInterface>;
+
   // setSelectedTheme:number;
 }
+// interface boxesProps2 {
+//   selectedTheme: number;
+//   theme: Array<ThemesInterface>;
+
+//   handleSubmit:React.ChangeEventHandler<HTMLInputElement>;
+
+//   // setSelectedTheme:number;
+// }
 const Boxes = ({ selectedTheme, theme }: boxesProps) => {
   const [template, setTemplate] = useState(theme[0]);
+  const [text, setText] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const location = useLocation();
   const locationPath = location.pathname.split("/");
@@ -22,14 +34,25 @@ const Boxes = ({ selectedTheme, theme }: boxesProps) => {
     }
   }, [locationId, theme]);
 
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    setSubmitted(true);
+    console.log(text, "text");
+    const data = {
+      text1: text,
+    };
+  };
+  useEffect(() => {}, []);
+
   const { setSelectedTheme } = useContext(ThemeContext);
-  console.log(
-    theme &&
-      theme.map((i) => {
-        i.id;
-      })
-  );
-  console.log(template.title);
+
+  // console.log(
+  //   theme &&
+  //   theme.map((i) => {
+  //     i.id;
+  //   })
+  // );
+  // console.log(template.title);
   return (
     <>
       {
@@ -42,14 +65,22 @@ const Boxes = ({ selectedTheme, theme }: boxesProps) => {
           <h2 style={{ fontSize: theme[selectedTheme].fontSize1 }}>
             {template.title}
           </h2>
-          <p
+
+          <TextareaAutosize
+            placeholder="Content goes here...."
             style={{
               color: theme[selectedTheme].secondary,
+              backgroundColor: theme[selectedTheme].bgPrimary,
               fontSize: theme[selectedTheme].fontSize2,
+              border: "none",
             }}
-          >
-            {template.body}
-          </p>
+            value={text}
+            onChange={(e) => {
+              const { value } = e.target;
+              setText(value);
+            }}
+          />
+          <button onClick={handleSubmit}>Save</button>
         </div>
         // )
       }

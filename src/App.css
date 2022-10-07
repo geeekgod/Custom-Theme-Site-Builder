@@ -42,3 +42,10 @@ button {
   margin: var(--theme2-btn-margin);
   background-color: var(--theme2-secondary-bg);
 }
+.subvariant {
+  border: none;
+}
+.subvariant:hover,
+.subvariant:focus {
+  border: none;
+}
