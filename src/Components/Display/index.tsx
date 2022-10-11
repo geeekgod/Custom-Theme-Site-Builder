@@ -3,7 +3,7 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../../Context/ThemeContext";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import Boxes from "./../Boxes/index";
+import Boxes from "../Boxes/index";
 
 interface displayProps {
   selectedTheme: number;

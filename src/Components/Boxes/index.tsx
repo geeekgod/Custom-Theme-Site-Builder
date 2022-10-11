@@ -3,24 +3,17 @@ import { ThemesInterface } from "../../types/interface";
 import React, { useContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import TextareaAutosize from "@mui/base/TextareaAutosize";
+import ReactDOM from "react-dom";
 import App from "../../App";
+
 interface boxesProps {
   selectedTheme: number;
   theme: Array<ThemesInterface>;
-
-  // setSelectedTheme:number;
 }
-// interface boxesProps2 {
-//   selectedTheme: number;
-//   theme: Array<ThemesInterface>;
 
-//   handleSubmit:React.ChangeEventHandler<HTMLInputElement>;
-
-//   // setSelectedTheme:number;
-// }
 const Boxes = ({ selectedTheme, theme }: boxesProps) => {
   const [template, setTemplate] = useState(theme[0]);
-  const [text, setText] = useState("");
+  const [text, setText] = useState(`${template.body}`);
   const [submitted, setSubmitted] = useState(false);
 
   const location = useLocation();
@@ -45,18 +38,9 @@ const Boxes = ({ selectedTheme, theme }: boxesProps) => {
   useEffect(() => {}, []);
 
   const { setSelectedTheme } = useContext(ThemeContext);
-
-  // console.log(
-  //   theme &&
-  //   theme.map((i) => {
-  //     i.id;
-  //   })
-  // );
-  // console.log(template.title);
   return (
     <>
       {
-        // theme.map((i) => (
         <div
           key={template.id}
           className="container"
@@ -79,6 +63,7 @@ const Boxes = ({ selectedTheme, theme }: boxesProps) => {
               const { value } = e.target;
               setText(value);
             }}
+            // defaultValue={template.body}
           />
           <button onClick={handleSubmit}>Save</button>
         </div>
