@@ -4,6 +4,7 @@ import "./App.css";
 import Display from "./Components/Display/index";
 import Cards from "./Components/Cards/index";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import FinalDisplay from "./Components/FinalDisplay";
 
 const App = () => {
   const { theme, selectedTheme, setSelectedTheme } = useContext(ThemeContext);
@@ -24,6 +25,12 @@ const App = () => {
             />
           </Route>
           {/* </Route> */}
+          <Route
+            path="finaldisplay"
+            element={
+              <FinalDisplay selectedTheme={selectedTheme} theme={theme} />
+            }
+          />
         </Routes>
       </Router>
     </>

@@ -48,7 +48,7 @@ const Display = ({ selectedTheme, theme }: displayProps) => {
         <button onClick={() => setSelectedTheme(2)}>Third</button>
         <button onClick={() => setSelectedTheme(3)}>Fourth</button>
         <button onClick={() => setSelectedTheme(4)}>Fifth</button>
-
+        heyy
         {/* <div className="size-changer">
        <div className="increment">
            <button>+</button>
